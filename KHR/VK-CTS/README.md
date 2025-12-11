@@ -140,5 +140,6 @@ cd external/vulkancts/modules/vulkan/
                 <t>dEQP-VK.api.object_management.private_data.framebuffer</t>
                 <t>dEQP-VK.api.object_management.private_data.graphics_pipeline</t>
         </waiver>
+</waiver_list>
 ```
 
