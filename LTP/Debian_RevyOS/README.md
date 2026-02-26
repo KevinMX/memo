@@ -19,6 +19,18 @@ Ref: https://github.com/linux-test-project/ltp/blob/master/ci/debian.sh
 
 ## 运行
 
+> [!Warning]
+> LTP 已正式移除 `runltp`，相关依赖也在清理中。
+> 
+> 从主线直接拉源码时必须使用 `kirk` 运行测试。
+>
+> 以下说明已过时。
+
+> [!Tip]
+> `kirk` 没有一键执行所有测试用例的能力。
+>
+> 需要逐个指定测试套。
+
 运行所有用例：
 
 ```shell
