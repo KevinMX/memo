@@ -5,7 +5,7 @@
 ```shell
 sudo apt update; sudo apt upgrade -y
 sudo apt install -y autoconf automake build-essential debhelper devscripts clang curl jq gcc git iproute2 libc6-dev libtirpc-dev linux-libc-dev lsb-release pkg-config acl-dev libacl1-dev libaio-dev libcap-dev libkeyutils-dev libnuma-dev libmnl-dev libselinux1-dev libsepol-dev libssl-dev
-git clone https://github.com/linux-test-project/ltp
+git clone --recursive https://github.com/linux-test-project/ltp
 #wget https://github.com/linux-test-project/ltp/releases/download/20250930/ltp-full-20250930.tar.xz
 #tar xvf ltp-full-20250930.tar.xz
 cd ltp
@@ -39,6 +39,12 @@ sudo -i
 cd /opt/ltp
 ./runltp
 #或使用 Kirk: https://linux-test-project.readthedocs.io/en/latest/users/quick_start.html
+```
+
+若使用 Kirk，在 riscv64 上的用例列表参考：
+
+```
+can capability commands containers controllers cpuhotplug crashme crypto cve dio dma_thread_diotest fcntl-locktests fs fs_bind fs_perms_simple fs_readonly hugetlb hyperthreading ima irq kernel_misc kvm ltp-aio-stress ltp-aiodio.part1 ltp-aiodio.part2 ltp-aiodio.part3 ltp-aiodio.part4 math mm net.features nptl numa power_management_tests power_management_tests_exclusive pty sched scsi_debug.part1 smack smoketest staging syscalls syscalls-ipc tpm_tools tracing uevent watchqueue
 ```
 
 强烈建议后台挂一个 `dmesg` 以方便后续失败用例分析。
