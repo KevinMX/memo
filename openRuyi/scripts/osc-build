@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# A simple script to build packages from OBS, locally
+
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+    echo "Usage: $0 <project_name> <arch> <repository>"
+    exit 1
+fi
+
+if [ -d "$1" ]; then
+    echo "Directory $1 already exists. Skipping checkout."
+else
+    osc co "$1" || exit 1
+fi
+
+pushd "$1" > /dev/null || exit 1
+
+osc up -S
+
+#rm -f _service
+
+#for file in *; do
+#    if [[ "$file" == *":"* ]]; then
+#        new_file=${file##*:}
+#        mv "$file" "$new_file"
+#    fi
+#done
+
+osc build --skip-local-service-run "$2" "$3"
+
+popd > /dev/null
